@@ -5,7 +5,7 @@ import pygame
 pymunk.pygame_util.positive_y_is_up = False
 
 # PYGAME
-RES = WIDTH, HEIGHT = 900, 720
+RES = WIDTH, HEIGHT = 1200, 1000
 FPS = 60
 surface = pygame.display.set_mode(RES)
 clock = pygame.time.Clock()
