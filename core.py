@@ -1,14 +1,18 @@
 from bacteria import *
 import random
 
-test1 = [Bacteria(color=(108, 60, 170, 48), family = 0,
-                  radius=random.randint(5, 7) ) for i in range(150)]
-for i in range(150):
-    test1.append(Bacteria(color=(198, 49, 168, 60), family = 1, position=(
-        350, 350), radius=random.randint(5, 7)))
-for i in range(500):
-    test1.append(Bacteria(color=(182, 21, 21, 80), family = 2, position=(
-        400, 400), radius=random.randint(5, 7)))
+
+current_family_number = 0
+
+test1 = []
+#test1 = [Bacteria(color=(108, 60, 170, 48), family = 0,
+#                  radius=random.randint(5, 7) ) for i in range(10)]
+#for i in range(10):
+#    test1.append(Bacteria(color=(198, 49, 168, 60), family = 1, position=(
+#        350, 350), radius=random.randint(5, 7)))
+#for i in range(10):
+#    test1.append(Bacteria(color=(182, 21, 21, 80), family = 2, position=(
+#        400, 400), radius=random.randint(5, 7)))
 
 def handle_collisions():
     #global test1, collision_list_rects
@@ -34,11 +38,27 @@ def handle_collisions():
 
 def cell_division():
     for member in test1:
-        if member._radius_>=15:
+        if member._radius_>=11:
             newborn_color = member._color_
             newborn_family = member._family_
             newborn_position = (member._body_.x,member._body_.y)
             newborn_radius = 5
             member._radius_-=5
             test1.append(Bacteria(color = newborn_color, family=newborn_family, position=newborn_position, radius=newborn_radius))
-            print("SEX!")
+            #print("SEX!")
+
+
+def cell_growth():
+    for member in test1:
+        member.grow()
+
+def compute_results(asd):
+    results = []
+    counter = 0
+    for i in range(asd):
+        for member in test1:
+            if(i == member._family_):
+                counter += 1
+        results.append(f'Colony {str(i+1)}: {str(counter)}')
+        counter = 0
+    return results
