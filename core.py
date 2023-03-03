@@ -59,9 +59,11 @@ def compute_results(asd):
     results = []
     counter = 0
     for i in range(asd):
+        color = None
         for member in test1:
+            color = member._color_
             if(i == member._family_):
                 counter += 1
-        results.append(f'Colony {str(i+1)}: {str(counter)}')
+        results.append((f'Colony {str(i+1)}: {str(counter)}',color))
         counter = 0
     return results

@@ -43,7 +43,7 @@ while True:
     text = compute_results(num)
     shift = 10
     for line in text:
-        surface.blit(font.render(line, True, (0, 0, 0)), (5, shift))
+        surface.blit(font.render(line[0], True, line[1]), (5, shift))
         shift+=15
     pygame.display.flip()
     clock.tick(FPS)
