@@ -18,7 +18,7 @@ while True:
     for i in pygame.event.get():
         if i.type == pygame.QUIT:
             exit()
-        if i.type == pygame.MOUSEBUTTONDOWN:
+        if i.type == pygame.MOUSEBUTTONDOWN: #Создать новую колонию
             if i.button == 1:
                 print("The new story begins...")
                 if not is_started:

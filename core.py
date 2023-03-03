@@ -15,6 +15,7 @@ test1 = []
 #        400, 400), radius=random.randint(5, 7)))
 
 def handle_collisions():
+    """Здесь обрабатываются коллизии для клеток. Если одна клетка больше другой, то большая съедает меньшую, увеличиваясь в размерах"""
     #global test1, collision_list_rects
     i=0
     while(i < len(test1)):
@@ -37,6 +38,7 @@ def handle_collisions():
 
 
 def cell_division():
+    """Клетки растут до определенного предела, после чего обязательно должны поделиться"""
     for member in test1:
         if member._radius_>=11:
             newborn_color = member._color_
@@ -53,6 +55,7 @@ def cell_growth():
         member.grow()
 
 def compute_results(asd):
+    """Это для отображения состояний колоний"""
     results = []
     counter = 0
     for i in range(asd):
