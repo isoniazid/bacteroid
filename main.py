@@ -16,8 +16,10 @@ while True:
     for i in pygame.event.get():
         if i.type == pygame.QUIT:
             exit()
+
+    cell_division()
+    handle_collisions()
     for member in test1:
-        print(collision_list_rects)
         member.wobble()
         member.draw()
         

@@ -9,7 +9,7 @@ FRICTION = 0.5
 ELASTICITY = 0.5
 
 collision_list_rects = []
-collision_list_ids = []
+collision_list_states = []
 
 
 class Bacteria:
@@ -28,22 +28,26 @@ class Bacteria:
         self._body_ = pygame.Rect(
             self._posx_, self._posy_, self._rect_, self._rect_)
         collision_list_rects.append(self._body_)
-        collision_list_ids.append(self._id_)
+        #collision_list_ids.append(self._family_, )
 
     def draw(self):
         pygame.draw.circle(surface, self._color_,
                            self._body_.center, self._radius_)
 
     def move(self, x_direction, y_direction):
+        global collision_list_rects
         if(x_direction+self._posx_ < WIDTH-10 and x_direction+self._posx_ > 10):
             if(y_direction+self._posy_ < HEIGHT-10 and y_direction+self._posy_ > 10):
                 self._body_.x+=x_direction
                 self._body_.y += y_direction
-                collision_list_rects[self._id_] = self._body_
+                #collision_list_rects[self._id_] = self._body_
 
     def check_collision(self):
-        if self._body_.colliderect(Bacteria._body_):
-            print('hw')
+        global collision_list_rects
+        collision = self._body_.collidelist(collision_list_rects) 
+        return collision
+
+            #print('hw')
 
     def wobble(self):
         x, y = randint(-1, 1), randint(-1, 1)
