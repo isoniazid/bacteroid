@@ -54,16 +54,25 @@ def cell_growth():
     for member in test1:
         member.grow()
 
+def cell_death():
+    i = 0
+    while( i < len(test1)):
+        if test1[i]._radius_ <= NEWBORN_RADIUS:
+            test1.pop(i)
+            collision_list_rects.pop(i)
+            i = 0
+        i+=1
+
 def compute_results(asd):
     """Это для отображения состояний колоний"""
     results = []
-    counter = 0
+    
     for i in range(asd):
-        color = None
+        counter = 0
+        color = (0,0,0,0)
         for member in test1:
-            color = member._color_
             if(i == member._family_):
                 counter += 1
+                color = member._color_
         results.append((f'Colony {str(i+1)}: {str(counter)}',color))
-        counter = 0
     return results
