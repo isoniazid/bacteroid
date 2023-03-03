@@ -5,13 +5,14 @@ import pygame
 
 #CONSTS
 RES = WIDTH, HEIGHT = 1200, 1000
-FPS = 100
-MINIMAL_RADIUS = 5
-MAXIMAL_RADIUS = 7
-NEWBORN_RADIUS = 5
-THRESHOLD_RADIUS = 15
-NEW_COLONY_SIZE = 100
-GROWTH_STEP = 1
+FPS = 75
+MINIMAL_RADIUS = 3 #Минимально возможный радиус для рожденных клеток и клеток в новых колониях
+MAXIMAL_RADIUS = 10 #Макимальный радиус клеток в новых колониях
+NEWBORN_RADIUS = 5 #Максимально возможный радиус для новорожденной клетки (Должен быть меньше порога)
+THRESHOLD_RADIUS = 9 #Порог размера для клетки, если болььше - она делится
+NEW_COLONY_SIZE = 10 #Размер новой колонии
+DEATH_THRESHOLD = 4 #Порог, при котором клетка умирает
+GROWTH_STEP = 1 #Шаг роста для клетки
 
 # PYGAME
 surface = pygame.display.set_mode(RES)

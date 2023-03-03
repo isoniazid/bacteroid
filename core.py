@@ -44,8 +44,8 @@ def cell_division():
             newborn_color = member._color_
             newborn_family = member._family_
             newborn_position = (member._body_.x,member._body_.y)
-            newborn_radius = NEWBORN_RADIUS
-            member._radius_-=5
+            newborn_radius = randint(MINIMAL_RADIUS, NEWBORN_RADIUS)
+            member._radius_-= newborn_radius
             test1.append(Bacteria(color = newborn_color, family=newborn_family, position=newborn_position, radius=newborn_radius))
             #print("SEX!")
 
@@ -57,7 +57,7 @@ def cell_growth():
 def cell_death():
     i = 0
     while( i < len(test1)):
-        if test1[i]._radius_ <= NEWBORN_RADIUS:
+        if test1[i]._radius_ < DEATH_THRESHOLD:
             test1.pop(i)
             collision_list_rects.pop(i)
             i = 0
