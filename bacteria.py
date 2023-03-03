@@ -34,8 +34,8 @@ class Bacteria:
 
     def move(self, x_direction, y_direction):
         global collision_list_rects
-        if(x_direction+self._posx_ < WIDTH-50 and x_direction+self._posx_ > 50): # Здесь ограничения, чтобы клетки не выходили за пределы карты
-            if(y_direction+self._posy_ < HEIGHT-50 and y_direction+self._posy_ > 50): # то же самое
+        if(x_direction+self._body_.x < WIDTH-100 and x_direction+self._body_.x > 100): # Здесь ограничения, чтобы клетки не выходили за пределы карты
+            if(y_direction+self._body_.y < HEIGHT-100 and y_direction+self._body_.y > 100): # то же самое
                 self._body_.x+=x_direction
                 self._body_.y += y_direction
                 #collision_list_rects[self._id_] = self._body_
