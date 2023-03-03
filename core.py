@@ -1,5 +1,5 @@
 from bacteria import *
-import random
+
 
 
 current_family_number = 0
@@ -40,11 +40,11 @@ def handle_collisions():
 def cell_division():
     """Клетки растут до определенного предела, после чего обязательно должны поделиться"""
     for member in test1:
-        if member._radius_>=11:
+        if member._radius_>=THRESHOLD_RADIUS:
             newborn_color = member._color_
             newborn_family = member._family_
             newborn_position = (member._body_.x,member._body_.y)
-            newborn_radius = 5
+            newborn_radius = NEWBORN_RADIUS
             member._radius_-=5
             test1.append(Bacteria(color = newborn_color, family=newborn_family, position=newborn_position, radius=newborn_radius))
             #print("SEX!")

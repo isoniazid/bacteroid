@@ -1,5 +1,3 @@
-from common import *
-from bacteria import Bacteria
 from core import *
 
 
@@ -26,7 +24,7 @@ while True:
                     pass
                 new_color = (randint(0, 255), randint(0, 255),
                              randint(0, 255), randint(0, 255))
-                for j in range(25):
+                for j in range(NEW_COLONY_SIZE):
                     test1.append(Bacteria(family=current_family_number,
                                           color=new_color, position=i.pos, radius=randint(5, 7)))
                 current_family_number += 1
